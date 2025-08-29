@@ -24,28 +24,96 @@ a {
 }
 
 .header {
-    background-image: url(img/header_phone.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    background-color: #E1FF8F;
+    position: relative;
+    overflow: hidden;
     height: 800px;
 
-    &__heading {
-        padding-top: 196px;
-        color: $color-black;
-        font-size: 4rem;
-        font-weight: 700;
-        text-align: left;
+    &__star {
+
+        &-big {
+            top: -333.5px;
+            right: -488px;
+
+            &-beam1 {
+                top: -10px;
+                left: 854px;
+            }
+
+            &-beam2 {
+                top: 254px;
+                left: 1067px;
+            }
+
+            &-beam3 {
+                top: 379px;
+                left: 1225px;
+            }
+
+            &-beam4 {
+                top: 468px;
+                left: 1247px;
+            }
+
+            &-beam5 {
+                top: 663px;
+                left: 1345px;
+            }
+        }
+
+        &1 {
+            top: 69px;
+            left: 156px;
+        }
+
+        &2 {
+            top: 94px;
+            left: 63px;
+        }
+
+        &3 {
+            top: 538px;
+            left: 948px;
+        }
+
+        &4 {
+            top: 568px;
+            left: 1013px;
+        }
+    }
+
+    &__mobile-wrapper {
+        display: none;
     }
 
     &__text {
+        display: flex;
+        flex-direction: column;
+        margin-top: 196px;
+    }
+
+    &__heading {
+        color: $color-black;
+        font-size: 4rem;
+        font-weight: 700;
+        line-height: 100%;
+        text-align: left;
+    }
+
+    &__description {
+        display: inline-block;
+        width: 720px;
         padding-top: 1.5rem;
         padding-bottom: 3rem;
         color: $color-black;
         font-size: 1.5rem;
-        font-weight: 500;
+        font-weight: 400;
         text-align: left;
         line-height: 2rem;
+    }
+
+    &__link {
+        height: 66px;
     }
 }
 
@@ -53,13 +121,12 @@ a {
     display: inline-block;
     padding: 1rem 1.7rem 1rem 1.7rem;
     width: 247px;
-    height: 66px;
     border: 1px solid $color-black;
     border-radius: 60px;
     background: $color-black;
     color: $color-white;
     font-size: 1.5rem;
-    font-weight: 400;
+    font-weight: 600;
     line-height: 29px;
     text-align: center;
     transition: all 2s;
@@ -75,14 +142,15 @@ a {
     position: relative;
     overflow: hidden;
     padding-bottom: 126px;
-
-    &__star {
-        position: absolute;
-        z-index: 2;
-    }
 }
 
 .star {
+
+    &__position {
+        position: absolute;
+        z-index: 2;
+    }
+
     &-big {
         top: 1.5%;
         right: -9.9%;
@@ -123,7 +191,7 @@ a {
     padding-bottom: 6rem;
 
     &__heading {
-        padding-top: 94px;
+        padding-top: 98px;
         color: $color-white;
         font-size: 4rem;
         font-weight: 600;
@@ -132,6 +200,8 @@ a {
     }
 
     &__text {
+        display: inline-block;
+        width: 700px;
         padding-top: 2rem;
         padding-bottom: 4.5rem;
         color: $color-white;
@@ -185,6 +255,7 @@ a {
             font-size: 2rem;
             font-weight: 700;
             text-align: left;
+            line-height: 100%;
         }
     }
 }
@@ -228,8 +299,9 @@ a {
         padding-bottom: 4.5rem;
         color: $color-white;
         font-size: 4rem;
-        font-weight: 600;
+        font-weight: 700;
         text-align: left;
+        line-height: 100%;
     }
 
     &__game {
@@ -276,6 +348,10 @@ a {
             background-size: cover;
         }
     }
+
+    &__link {
+        height: 66px;
+    }
 }
 
 .img-game- {
@@ -317,3 +393,6 @@ a {
         text-align: center;
     }
 }
+
+@import 'tablet';
+@import 'mobile';
