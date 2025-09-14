@@ -342,18 +342,95 @@ a {
     padding-left: 24px;
     padding-right: 24px;
   }
+  .header {
+    height: 750px;
+  }
   .header__text {
     position: absolute;
     z-index: 3;
-    width: 100%;
   }
   .header__heading {
     font-size: 40px;
   }
   .header__description {
+    width: 100%;
     padding-bottom: 36px;
     font-size: 1rem;
     line-height: 100%;
+  }
+  .main-content {
+    padding-bottom: 64px;
+  }
+  .main-content-wrapper {
+    display: none;
+  }
+  .about {
+    padding-bottom: 3rem;
+  }
+  .about__heading {
+    padding-top: 3rem;
+    font-size: 3rem;
+  }
+  .about__text {
+    width: 100%;
+    padding-bottom: 3rem;
+    font-size: 1.3rem;
+    line-height: 100%;
+  }
+  .about__game-box {
+    grid-template-rows: 390px 3px 406px;
+    gap: 24px;
+  }
+  .about__game-img {
+    height: 220px;
+  }
+  .about__game-number {
+    margin-left: 0.8rem;
+    font-size: 0.8rem;
+    line-height: 16px;
+  }
+  .about__game-name {
+    padding-top: 0.8rem;
+    margin-top: 0.8rem;
+    margin-left: 0.8rem;
+    font-size: 1.5rem;
+  }
+  .game-name_width {
+    width: 200px;
+  }
+  .content__heading {
+    padding-bottom: 3rem;
+    font-size: 3rem;
+  }
+  .content__game {
+    margin-bottom: 24px;
+  }
+  .content__game-text {
+    width: 50%;
+    height: 250px;
+    padding: 2rem;
+  }
+  .content__game-name {
+    width: 50%;
+    padding-bottom: 1rem;
+    font-size: 2.5rem;
+  }
+  .content__game-info {
+    padding-bottom: 24px;
+    font-size: 1.3rem;
+    line-height: 100%;
+  }
+  .content__game-img {
+    width: 50%;
+    height: 400px;
+  }
+  .content__link {
+    height: 66px;
+  }
+  .footer__text {
+    padding-top: 48px;
+    padding-bottom: 48px;
+    font-size: 1.3rem;
   }
 }
 @media (max-width: 476px) {
