@@ -218,7 +218,13 @@ a {
   font-size: 2rem;
   font-weight: 700;
   text-align: left;
+  letter-spacing: 0px;
   line-height: 100%;
+}
+
+.game-name_width {
+  display: inline-block;
+  width: 250px;
 }
 
 .position-game-1 {
@@ -271,6 +277,7 @@ a {
   z-index: 3;
 }
 .content__game-name {
+  width: 504px;
   padding-bottom: 1.5rem;
   color: #202027;
   font-size: 3rem;
@@ -437,6 +444,7 @@ a {
     padding: 29px 29px 32px 29px;
   }
   .content__game-name {
+    width: 100%;
     padding-bottom: 1rem;
     font-size: 2rem;
   }
