@@ -154,14 +154,17 @@ console.log(word);
 
 //Задание 2
 
-const strArray = [];
-const search = '';
+function filterStartsWith(arr, prefix) {
+    const lowerPrefix = prefix.toLowerCase();
+    return arr.filter(item => {
+        return item.toLowerCase().startsWith(lowerPrefix);
+    });
+}
 
-strArray.forEach((substr) => {
-    if (substr.toLowerCase().startsWith(search.toLowerCase())) {
-        console.log(substr);
-    }
-})
+const strArray = ["диван белый", "диван желтый", "диван кожаный", "новый диван", "шкаф белый", "шкаф желтый", "деревянный шкаф",];
+const search = 'диван';
+const result = filterStartsWith(strArray, search);
+console.log(result);
 
 
 //Задание 3
@@ -220,18 +223,6 @@ function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-function generateRandom(num) {
-
-    const result = [];
-
-    for (let i = 0; i < arrayLength; i++) {
-        const randomNum = Math.floor(Math.random() * (num + 1));
-        result.push(randomNum);
-    }
-
-    return result;
 }
 
 
