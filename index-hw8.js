@@ -143,117 +143,142 @@ function simpleQuiz() {
     alert(`Конец! \nВы дали ${correctAnswersCountSimpleQuiz} правильных ответов из ${quiz.length} вопросов.`);
 }
 
+
+//Камень, ножницы, бумага
+
+function rockPaperScissors() {
+
+    const arrRockPaperScissors = ["камень", "ножницы", "бумага"];
+
+    for (let i = 0; i <= 5; i++) {
+        const computerAnswerRockPaperScissors = arrRockPaperScissors[getRandomIntInclusive(0, 2)];
+        console.log(`Компьютер выбрал: ${computerAnswerRockPaperScissors}`);
+
+        let userChoice = prompt('Сделай выбор: камень, ножницы и бумага. Напиши в поле ввода.');
+
+        if (userChoice === null) {
+            alert('Операция отменена пользователем');
+            break;
+        }
+
+        let userAnswerRockPaperScissors = userChoice.toLowerCase();
+
+        if (!arrRockPaperScissors.includes(userAnswerRockPaperScissors)) {
+            alert('Неверный ввод! Пожалуйста, укажите корректный вариант ответа: камень, ножницы или бумага.');
+            continue;
+        }
+
+        if (userAnswerRockPaperScissors === computerAnswerRockPaperScissors) {
+            alert('Ничья!');
+        } else {
+            if (
+                (userAnswerRockPaperScissors === 'камень' && computerAnswerRockPaperScissors === 'ножницы') ||
+                (userAnswerRockPaperScissors === 'ножницы' && computerAnswerRockPaperScissors === 'бумага') ||
+                (userAnswerRockPaperScissors === 'бумага' && computerAnswerRockPaperScissors === 'камень')
+            ) {
+                alert(`Вы выиграли! Вы выбрали ${userAnswerRockPaperScissors}, компьютер выбрал ${computerAnswerRockPaperScissors}`)
+            } else {
+                alert(`Вы проиграли! Вы выбрали ${userAnswerRockPaperScissors}, компьютер выбрал ${computerAnswerRockPaperScissors}`);
+            }
+        }
+    }
+}
+
 //Задания на работу с кодом
 
 //Задание 1
 
-let word = 'js';
-word = word.toUpperCase();
-console.log(word);
+const people1 = [
+    { name: 'Глеб', age: 29 },
+    { name: 'Анна', age: 17 },
+    { name: 'Олег', age: 7 },
+    { name: 'Оксана', age: 47 }
+];
+
+const compareFn = (a, b) => a.age - b.age;
+
+console.log(people1.sort(compareFn));
 
 
 //Задание 2
 
-function filterStartsWith(arr, prefix) {
-    const lowerPrefix = prefix.toLowerCase();
-    return arr.filter(item => {
-        return item.toLowerCase().startsWith(lowerPrefix);
-    });
+function isPositive(a) {
+    if (a >= 0) {
+        return a;
+    }
 }
 
-const strArray = ["диван белый", "диван желтый", "диван кожаный", "новый диван", "шкаф белый", "шкаф желтый", "деревянный шкаф",];
-const search = 'диван';
-const result = filterStartsWith(strArray, search);
-console.log(result);
+function isMale(people2) {
+    if (people2.gender === 'male') {
+        return people2
+    };
+}
+
+function filter(arr, ruleFunction) {
+    const output = [];
+
+    for (let i = 0; i < arr.length; i++) {
+
+        const result = ruleFunction(arr[i]);
+        if (result !== undefined) {
+            output.push(result);
+        }
+    }
+    return output;
+}
+
+console.log(filter([3, -4, 1, 9], isPositive));
+
+const people2 = [
+    { name: 'Глеб', gender: 'male' },
+    { name: 'Анна', gender: 'female' },
+    { name: 'Олег', gender: 'male' },
+    { name: 'Оксана', gender: 'female' }
+];
+
+console.log(filter(people2, isMale));
 
 
 //Задание 3
 
-const roundTheNumber = 32.58884;
+const timer = (deadline) => {
+    const interval = setInterval(() => {
+        console.log(deadline);
+    }, 3000);
 
-let roundTheNumberFloor = Math.floor(roundTheNumber);
-console.log(roundTheNumberFloor);
+    setTimeout(() => {
+        clearInterval(interval);
+        console.log('30 секунд прошло')
+    }, deadline * 1000)
+};
 
-let roundTheNumberCeil = Math.ceil(roundTheNumber);
-console.log(roundTheNumberCeil);
-
-let roundTheNumberRound = Math.round(roundTheNumber);
-console.log(roundTheNumberRound);
+timer(30);
 
 
 //Задание 4
 
-const arrNumbers = [52, 53, 49, 77, 21, 32];
+function delayForSecond(callback) {
+    setTimeout(() => {
+        callback();
+    }, 1000);
+}
 
-console.log(`Минимальное число в массиве: ${Math.min(...arrNumbers)}`);
-
-console.log(`Максимальное число в массиве: ${Math.max(...arrNumbers)}`);
+delayForSecond(function () {
+    console.log('Привет, Глеб!');
+})
 
 
 //Задание 5
 
-function randomNum(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1) + min);
+function delayForSecond(cb) {
+    setTimeout(() => {
+        console.log('Прошла одна секунда');
+        if (cb) { cb(); }
+    }, 1000)
 }
 
-console.log(randomNum(1, 10));
-
-
-//Задание 6
-
-function generateRandomArray(num) {
-    const arrayLength = Math.floor(num / 2);
-
-    const result = [];
-
-    for (let i = 0; i < arrayLength; i++) {
-        const randomNum = Math.floor(Math.random() * (num + 1));
-        result.push(randomNum);
-    }
-
-    return result;
+function sayHi(name) {
+    console.log(`Привет, ${name}!`);
 }
 
-
-//Задание 7
-
-function getRandomIntInclusive(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-
-//Задание 8
-
-let currentDate = new Date();
-
-console.log(currentDate);
-
-
-//Задание 9
-
-let myDate = new Date();
-
-console.log(+myDate);
-
-let days73 = 73 * 24 * 60 * 60 * 1000;
-let searchDate = myDate + days73;
-let daysPlus73 = new Date(searchDate);
-
-console.log(daysPlus73);
-
-
-//Задание 10
-
-const days = ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"];
-const months = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
-
-let dateOnComp = new Date();
-
-let fullDate = `Дата: ${dateOnComp.getDate()} ${months[dateOnComp.getMonth()]} ${dateOnComp.getFullYear()} – это ${days[dateOnComp.getDay()]}; 
-Время: ${dateOnComp.getHours()}:${dateOnComp.getMinutes()}:${dateOnComp.getSeconds()}`;
-
-console.log(fullDate);
+delayForSecond(() => sayHi('Глеб'));
