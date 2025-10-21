@@ -8,7 +8,6 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-
 //Угадай число
 
 function guessTheNumber() {
@@ -184,101 +183,52 @@ function rockPaperScissors() {
     }
 }
 
-//Задания на работу с кодом
 
-//Задание 1
+//Генератор случайных цветов
 
-const people1 = [
-    { name: 'Глеб', age: 29 },
-    { name: 'Анна', age: 17 },
-    { name: 'Олег', age: 7 },
-    { name: 'Оксана', age: 47 }
-];
+const linkGame6El = document.querySelector('.link-game-6');
+const contentBtnEl = document.querySelector('.content__btn');
 
-const compareFn = (a, b) => a.age - b.age;
-
-console.log(people1.sort(compareFn));
-
-
-//Задание 2
-
-function isPositive(a) {
-    if (a >= 0) {
-        return a;
+linkGame6El.addEventListener('click', function () {
+    if (contentBtnEl.style.display === 'none') {
+        contentBtnEl.style.display = 'block';
+        linkGame6El.textContent = 'Скрыть';
+    } else {
+        contentBtnEl.style.display = 'none';
+        linkGame6El.textContent = 'Играть!';
     }
-}
+});
 
-function isMale(people2) {
-    if (people2.gender === 'male') {
-        return people2
-    };
-}
+function generateRandomHexColor() {
+    const arr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F',];
+    const arrHex = [];
 
-function filter(arr, ruleFunction) {
-    const output = [];
-
-    for (let i = 0; i < arr.length; i++) {
-
-        const result = ruleFunction(arr[i]);
-        if (result !== undefined) {
-            output.push(result);
-        }
+    for (let i = 0; i < 6; i++) {
+        const arrHexRandomEl = arr[getRandomIntInclusive(0, arr.length - 1)];
+        arrHex.push(arrHexRandomEl);
     }
-    return output;
+
+    let HexRandomStr = arrHex.join('')
+    let HexRandomCode = '#' + HexRandomStr;
+    return HexRandomCode;
 }
 
-console.log(filter([3, -4, 1, 9], isPositive));
+function randomColorGenerator() {
+    const mainEl = document.querySelector('.main');
 
-const people2 = [
-    { name: 'Глеб', gender: 'male' },
-    { name: 'Анна', gender: 'female' },
-    { name: 'Олег', gender: 'male' },
-    { name: 'Оксана', gender: 'female' }
-];
-
-console.log(filter(people2, isMale));
-
-
-//Задание 3
-
-const timer = (deadline) => {
-    const interval = setInterval(() => {
-        console.log(deadline);
-    }, 3000);
-
-    setTimeout(() => {
-        clearInterval(interval);
-        console.log('30 секунд прошло')
-    }, deadline * 1000)
-};
-
-timer(30);
-
-
-//Задание 4
-
-function delayForSecond(callback) {
-    setTimeout(() => {
-        callback();
-    }, 1000);
+    contentBtnEl.addEventListener('click', function () {
+        const randomColor = generateRandomHexColor();
+        mainEl.style.backgroundColor = `${randomColor}`;
+    });
 }
 
-delayForSecond(function () {
-    console.log('Привет, Глеб!');
-})
+//Плавный скролл якоря
 
-
-//Задание 5
-
-function delayForSecond(cb) {
-    setTimeout(() => {
-        console.log('Прошла одна секунда');
-        if (cb) { cb(); }
-    }, 1000)
-}
-
-function sayHi(name) {
-    console.log(`Привет, ${name}!`);
-}
-
-delayForSecond(() => sayHi('Глеб'));
+document.querySelectorAll('.smooth-scroll').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});

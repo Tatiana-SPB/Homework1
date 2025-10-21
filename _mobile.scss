@@ -6,7 +6,7 @@
     }
 
     .header {
-        height: 700px;
+        height: 649px;
 
         &__text {
             align-items: center;
@@ -20,6 +20,42 @@
         &__mobile-wrapper {
             display: block;
         }
+
+        &__mobile {
+
+            &-wrapper {
+                display: block;
+            }
+
+            &-star {
+
+                &-big {
+                    top: -14.8%;
+                    right: -30%;
+                }
+
+                &-1 {
+                    top: 9.14%;
+                    left: 24.2%;
+                }
+
+                &-2 {
+                    top: 13.9%;
+                    left: 9.84%;
+                }
+
+                &-3 {
+                    bottom: 17.9%;
+                    right: 22.9%;
+                }
+
+                &-4 {
+                    bottom: 11.3%;
+                    right: 9%;
+                }
+            }
+        }
+
 
         &__heading {
             font-size: 40px;
@@ -46,41 +82,34 @@
         line-height: 20px;
     }
 
-    .mobile {
+    .scrollbar {
 
-        &__star {
+        &__box {
+            width: 1717.4px;
+            gap: 27.4px;
+            padding: 15px 24px 15px 24px;
+            border: 0.54px;
+            backdrop-filter: blur(26.9px);
+        }
 
-            &-big {
-                top: -14.8%;
-                right: -30%;
-            }
+        &__text {
+            font-size: 16px;
+            line-height: 20px;
+        }
 
-            &-1 {
-                top: 9.14%;
-                left: 24.2%;
-            }
+        &__img {
+            display: none;
 
-            &-2 {
-                top: 13.9%;
-                left: 9.84%;
-            }
-
-            &-3 {
-                bottom: 17.9%;
-                right: 22.9%;
-            }
-
-            &-4 {
-                bottom: 11.3%;
-                right: 9%;
+            &__mobile {
+                display: block;
             }
         }
     }
 
-    .main-content {
+    .main {
         padding-bottom: 10px;
 
-        &-wrapper {
+        &__content-wrapper {
             display: none;
         }
     }
